@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import com.ignacio.gradecalc.enums.UniversityPreset;
 
 @Controller
 public class AuthController {
@@ -45,8 +46,11 @@ public class AuthController {
 
         // Hash password and create user
         String hashedPassword = passwordEncoder.encode(password);
-        User user = new User(username, hashedPassword, universityPreset);
+        UniversityPreset preset = UniversityPreset.valueOf(universityPreset);
+        User user = new User(username, hashedPassword, preset);
         userRepository.save(user);
+
+
 
         return "redirect:/login?registered";
     }
