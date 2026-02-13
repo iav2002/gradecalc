@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - Grade Calculator</title>
+</head>
+<body>
+<h1>Dashboard</h1>
+<p>Welcome, <span th:text="${username}"></span>!</p>
+
+<p>Your modules will appear here in Phase 3.</p>
+
+<form th:action="@{/logout}" method="post">
+    <button type="submit">Logout</button>
+</form>
+</body>
+</html>
